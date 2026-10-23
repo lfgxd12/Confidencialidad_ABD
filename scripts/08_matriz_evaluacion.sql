@@ -74,16 +74,14 @@ WITH r AS (
          CASE WHEN n = 0 THEN 0 WHEN n <= 2 THEN 2 ELSE 4 END
     FROM (SELECT COUNT(DISTINCT policy_name) n FROM audit_unified_enabled_policies)
   UNION ALL
-  SELECT 'A8.13', 'ARCHIVELOG y respaldo completado en 7 dias',
-         CASE WHEN m = 'ARCHIVELOG' AND b > 0 THEN 4 WHEN m = 'ARCHIVELOG' THEN 2 ELSE 0 END
-    FROM (SELECT (SELECT log_mode FROM v$database) m,
-                 (SELECT COUNT(*) FROM v$rman_backup_job_details
-                   WHERE status LIKE 'COMPLETED%' AND start_time > SYSDATE - 7) b FROM dual)
+  SELECT 'A8.13', 'ARCHIVELOG activo (respaldo y cifrado se evaluan con RMAN, 06b)',
+         CASE WHEN m = 'ARCHIVELOG' THEN 2 ELSE 0 END
+    FROM (SELECT log_mode m FROM v$database)
   UNION ALL
-  SELECT 'A8.20', 'Sesiones con cifrado de red observado',
+  SELECT 'A8.20', 'Sesiones con adaptador de cifrado de red activo',
          CASE WHEN n > 0 THEN 4 ELSE 1 END
     FROM (SELECT COUNT(*) n FROM v$session_connect_info
-           WHERE network_service_banner LIKE '%ncryption%' OR network_service_banner LIKE '%TCPS%')
+           WHERE network_service_banner LIKE '%Encryption service adapter%' OR network_service_banner LIKE '%TCPS%')
   UNION ALL
   SELECT 'A8.8', 'Parche SQL exitoso en los ultimos 365 dias',
          CASE WHEN n > 0 THEN 4 ELSE 1 END

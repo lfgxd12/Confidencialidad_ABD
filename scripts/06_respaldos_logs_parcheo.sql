@@ -9,7 +9,7 @@ PROMPT === Modo de archivado y redo
 SELECT log_mode, force_logging FROM v$database;
 SELECT group#, status, archived FROM v$log;
 SELECT name, completion_time FROM v$archived_log ORDER BY completion_time DESC FETCH FIRST 10 ROWS ONLY;
-PROMPT === Respaldos RMAN recientes
+PROMPT === Respaldos RMAN recientes (pueden verse vacios desde el PDB aunque existan respaldos del CDB: ver 06b con RMAN)
 SELECT input_type, status, TO_CHAR(start_time,'YYYY-MM-DD HH24:MI') inicio, output_bytes_display
   FROM v$rman_backup_job_details ORDER BY start_time DESC FETCH FIRST 10 ROWS ONLY;
 PROMPT === Quien puede minar el redo (LogMiner)

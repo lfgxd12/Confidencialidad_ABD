@@ -7,7 +7,7 @@ FECHA
 ----------------------------------------------------
 CONF_AUDITOR                                                                                                                     
 XEPDB1                                                                                                                                                                                                  
-2026-10-22 22:12:44 -06:00                          
+2026-10-22 22:35:02 -06:00                          
 
 
 1 fila seleccionada. 
@@ -38,13 +38,17 @@ USERS                     NO
 
 0 filas seleccionadas. 
 
-=== OBS-11 Cifrado de red observado en sesiones (vacio si la conexion es local)
+=== OBS-11 Servicios de red de la sesion actual (busque Encryption service adapter o TCPS)
 
 NETWORK_SERVICE_BANNER                                                          
 --------------------------------------------------------------------------------
-Encryption service for 64-bit Windows: Version 21.0.1.0.0 - Production
+Windows NT TCP/IP NT Protocol Adapter for 64-bit Windows: Version 21.0.0.0.0 - P
+roduction
 
-1 fila seleccionada. 
+Encryption service for 64-bit Windows: Version 21.0.1.0.0 - Production
+Crypto-checksumming service for 64-bit Windows: Version 21.0.1.0.0 - Production
+
+3 filas seleccionadas. 
 
 === Listener
 

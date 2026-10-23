@@ -11,9 +11,9 @@ PROMPT === Columnas y tablespaces cifrados
 SELECT owner, table_name, column_name, encryption_alg FROM dba_encrypted_columns;
 SELECT tablespace_name, encrypted FROM dba_tablespaces;
 SELECT * FROM v$encrypted_tablespaces;
-PROMPT === OBS-11 Cifrado de red observado en sesiones (vacio si la conexion es local)
+PROMPT === OBS-11 Servicios de red de la sesion actual (busque Encryption service adapter o TCPS)
 SELECT DISTINCT network_service_banner FROM v$session_connect_info
- WHERE network_service_banner LIKE '%ncryption%' OR network_service_banner LIKE '%TCPS%';
+ WHERE sid = SYS_CONTEXT('USERENV','SID');
 PROMPT === Listener
 SELECT name, value FROM v$parameter WHERE name IN ('local_listener','remote_listener','dispatchers');
 PROMPT Ejecute en CMD fuera de SQL Developer: lsnrctl status
