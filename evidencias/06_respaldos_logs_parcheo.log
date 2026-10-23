@@ -1,0 +1,135 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+CONF_AUDITOR                                                                                                                     
+XEPDB1                                                                                                                                                                                                                      
+2026-10-22 22:13:00 -06:00                          
+
+
+1 fila seleccionada. 
+
+=== Modo de archivado y redo
+
+LOG_MODE     FORCE_LOGGING                          
+------------ ---------------------------------------
+ARCHIVELOG   NO                                     
+
+1 fila seleccionada. 
+
+
+    GROUP# STATUS                    ARC
+---------- ------------------------- ---
+         1 INACTIVE                  YES
+         2 INACTIVE                  YES
+         3 CURRENT                   NO 
+
+3 filas seleccionadas. 
+
+
+NAME                                                         COMPLETI
+------------------------------------------------------------ --------
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 22/10/26
+032_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+031_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+030_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+029_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+028_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+027_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+026_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+025_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+024_1235065342.0001                                                  
+
+C:\APP\LFGXD\PRODUCT\21C\HOMES\ORADB21HOME1\RDBMS\ARC0000000 05/10/26
+023_1235065342.0001                                                  
+
+
+10 filas seleccionadas. 
+
+=== Respaldos RMAN recientes
+
+0 filas seleccionadas. 
+
+=== Quien puede minar el redo (LogMiner)
+
+GRANTEE                                                                                                                          PRIVILEGE
+-------------------------------------------------------------------------------------------------------------------------------- ---------
+SYS                                                                                                                              LOGMINING
+DBA                                                                                                                              LOGMINING
+
+2 filas seleccionadas. 
+
+
+GRANTEE
+--------------------------------------------------------------------------------------------------------------------------------
+GRANTED_ROLE                                                                                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+SYS                                                                                                                              
+EXECUTE_CATALOG_ROLE                                                                                                            
+
+DBA                                                                                                                              
+EXECUTE_CATALOG_ROLE                                                                                                            
+
+IMP_FULL_DATABASE                                                                                                                
+EXECUTE_CATALOG_ROLE                                                                                                            
+
+EXP_FULL_DATABASE                                                                                                                
+EXECUTE_CATALOG_ROLE                                                                                                            
+
+
+4 filas seleccionadas. 
+
+=== Ubicacion de alert log y trazas
+
+NAME                                                         VALUE                                                                 
+------------------------------------------------------------ ----------------------------------------------------------------------
+ADR Home                                                     C:\APP\LFGXD\PRODUCT\21C\diag\rdbms\xe\xe                             
+Diag Trace                                                   C:\APP\LFGXD\PRODUCT\21C\diag\rdbms\xe\xe\trace                       
+Diag Alert                                                   C:\APP\LFGXD\PRODUCT\21C\diag\rdbms\xe\xe\alert                       
+
+3 filas seleccionadas. 
+
+=== Version y parches aplicados
+
+BANNER_FULL                                                                                                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+1 fila seleccionada. 
+
+
+0 filas seleccionadas. 
+
+=== Eliminacion segura: papelera de reciclaje
+
+VALUE                                                                 
+----------------------------------------------------------------------
+on
+
+1 fila seleccionada. 
+
+
+0 filas seleccionadas. 
+
+Para respaldos cifrados ejecute en RMAN: SHOW ALL

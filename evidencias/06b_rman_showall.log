@@ -1,0 +1,66 @@
+
+Recovery Manager : Release 21.0.0.0.0 - Production on Jue Oct 22 22:27:03 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+conectado a la base de datos de destino: XE (DBID=3116186046)
+
+RMAN> 
+se utiliza el archivo de control de la base de datos destino en lugar del catálogo de recuperación
+Los parámetros de configuración de RMAN para la base de datos con db_unique_name XE son:
+CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 14 DAYS;
+CONFIGURE BACKUP OPTIMIZATION OFF; # default
+CONFIGURE DEFAULT DEVICE TYPE TO DISK; # default
+CONFIGURE CONTROLFILE AUTOBACKUP ON;
+CONFIGURE CONTROLFILE AUTOBACKUP FORMAT FOR DEVICE TYPE DISK TO '%F'; # default
+CONFIGURE DEVICE TYPE DISK PARALLELISM 1 BACKUP TYPE TO BACKUPSET; # default
+CONFIGURE DATAFILE BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE ARCHIVELOG BACKUP COPIES FOR DEVICE TYPE DISK TO 1; # default
+CONFIGURE MAXSETSIZE TO UNLIMITED; # default
+CONFIGURE ENCRYPTION FOR DATABASE OFF; # default
+CONFIGURE ENCRYPTION ALGORITHM 'AES128'; # default
+CONFIGURE COMPRESSION ALGORITHM 'BASIC' AS OF RELEASE 'DEFAULT' OPTIMIZE FOR LOAD TRUE ; # default
+CONFIGURE RMAN OUTPUT TO KEEP FOR 7 DAYS; # default
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE; # default
+CONFIGURE SNAPSHOT CONTROLFILE NAME TO 'C:\APP\LFGXD\PRODUCT\21C\DATABASE\SNCFXE.ORA'; # default
+
+RMAN> 
+
+Lista de Copias de Seguridad
+===============
+Clave     TY LV S Tipo de Dispositivo Hora de Finalización Número de Parte Número de Copia Comprimido Etiqueta
+------- -- -- - ----------- -------------------- ------- ------- ---------- ---
+1       B  A  A DISK        05/10/26             1       1       YES        TAG20261005T021010
+2       B  0  A DISK        05/10/26             1       1       YES        TAG20261005T021035
+3       B  0  A DISK        05/10/26             1       1       YES        TAG20261005T021035
+4       B  0  A DISK        05/10/26             1       1       YES        TAG20261005T021035
+5       B  A  A DISK        05/10/26             1       1       YES        TAG20261005T021252
+6       B  F  A DISK        05/10/26             1       1       NO         TAG20261005T021253
+7       B  F  A DISK        05/10/26             1       1       NO         TAG20261005T021255
+8       B  F  A DISK        05/10/26             1       1       NO         TAG20261005T021257
+9       B  A  A DISK        05/10/26             1       1       YES        TAG20261005T021752
+10      B  A  A DISK        05/10/26             1       1       YES        TAG20261005T022341
+11      B  A  A DISK        05/10/26             1       1       YES        TAG20261005T022509
+12      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024205
+13      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024206
+14      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024208
+15      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024209
+16      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024211
+17      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024212
+18      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024517
+19      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024518
+20      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024520
+21      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024521
+22      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024524
+23      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024525
+24      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024706
+25      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024707
+26      B  A  A DISK        05/10/26             1       1       NO         TAG20261005T024709
+27      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024710
+28      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024712
+29      B  F  A DISK        05/10/26             1       1       NO         TAG20261005T024713
+
+RMAN> 
+
+Recovery Manager terminado.

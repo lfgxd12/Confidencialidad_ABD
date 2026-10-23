@@ -1,0 +1,34 @@
+
+LSNRCTL for 64-bit Windows: Version 21.0.0.0.0 - Production on 22-OCT-2026 22:19:34
+
+Copyright (c) 1991, 2021, Oracle.  All rights reserved.
+
+Conectándose a (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=Luis)(PORT=1521)))
+ESTADO del LISTENER
+------------------------
+Alias                     LISTENER
+Versión                   TNSLSNR for 64-bit Windows: Version 21.0.0.0.0 - Production
+Fecha de Inicio       22-OCT-2026 08:16:56
+Tiempo Actividad   0 días 14 hr. 2 min. 38 seg.
+Nivel de Rastreo        off
+Seguridad               ON: Local OS Authentication
+SNMP                      OFF
+Servicio por Defecto           XE
+Parámetros del Listener   C:\app\lfgxd\product\21c\homes\OraDB21Home1\network\admin\listener.ora
+Log del Listener          C:\app\lfgxd\product\21c\diag\tnslsnr\Luis\listener\alert\log.xml
+Recibiendo Resumen de Puntos Finales...
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=Luis)(PORT=1521)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(PIPENAME=\\.\pipe\EXTPROC1521ipc)))
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=127.0.0.1)(PORT=5500))(Security=(my_wallet_directory=C:\APP\LFGXD\PRODUCT\21C\admin\XE\xdb_wallet))(Presentation=HTTP)(Session=RAW))
+Resumen de Servicios...
+El servicio "967575f77af54892b37baf2d816f3d1d" tiene 1 instancia(s).
+  La instancia "xe", con estado READY, tiene 2 manejador(es) para este servicio...
+El servicio "CLRExtProc" tiene 1 instancia(s).
+  La instancia "CLRExtProc", con estado UNKNOWN, tiene 1 manejador(es) para este servicio...
+El servicio "XE" tiene 1 instancia(s).
+  La instancia "xe", con estado READY, tiene 2 manejador(es) para este servicio...
+El servicio "XEXDB" tiene 1 instancia(s).
+  La instancia "xe", con estado READY, tiene 1 manejador(es) para este servicio...
+El servicio "xepdb1" tiene 1 instancia(s).
+  La instancia "xe", con estado READY, tiene 2 manejador(es) para este servicio...
+El comando ha terminado correctamente

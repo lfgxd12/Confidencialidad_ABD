@@ -1,0 +1,67 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+CONF_AUDITOR                                                                                                                     
+XEPDB1                                                                                                                                                                                                  
+2026-10-22 22:12:44 -06:00                          
+
+
+1 fila seleccionada. 
+
+=== OBS-10 Estado del almacen de llaves (wallet)
+
+WRL_TYPE     WRL_PARAMETER                                      STATUS                         WALLET_TYPE         
+------------ -------------------------------------------------- ------------------------------ --------------------
+FILE                                                            NOT_AVAILABLE                  UNKNOWN             
+
+1 fila seleccionada. 
+
+=== Columnas y tablespaces cifrados
+
+0 filas seleccionadas. 
+
+
+TABLESPACE_NAME           ENC
+------------------------- ---
+SYSTEM                    NO 
+SYSAUX                    NO 
+UNDOTBS1                  NO 
+TEMP                      NO 
+USERS                     NO 
+
+5 filas seleccionadas. 
+
+
+0 filas seleccionadas. 
+
+=== OBS-11 Cifrado de red observado en sesiones (vacio si la conexion es local)
+
+NETWORK_SERVICE_BANNER                                                          
+--------------------------------------------------------------------------------
+Encryption service for 64-bit Windows: Version 21.0.1.0.0 - Production
+
+1 fila seleccionada. 
+
+=== Listener
+
+NAME
+--------------------------------------------------------------------------------
+VALUE                                                                                                                                                                                                   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dispatchers                                                                      
+(PROTOCOL=TCP) (SERVICE=XEXDB)                                                                                                                                                                          
+
+local_listener                                                                   
+LISTENER_XE                                                                                                                                                                                             
+
+remote_listener                                                                  
+                                                                                                                                                                                                        
+
+
+3 filas seleccionadas. 
+
+Ejecute en CMD fuera de SQL Developer: lsnrctl status
