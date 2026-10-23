@@ -22,6 +22,7 @@ Oracle Database 21c XE (multitenant, PDB `XEPDB1`), Oracle SQL Developer.
 | Paso | Script | Usuario | Tipo |
 |---|---|---|---|
 | 1 | `00_crear_auditor.sql` | SYS | Crea el usuario auditor de solo lectura |
+| 1b | `00b_ajuste_auditor.sql` | SYS | Concede al auditor la vista de contraseñas por defecto |
 | 2 | `01_privilegios_roles.sql` | `conf_auditor` | Lectura |
 | 3 | `02_autenticacion_perfiles.sql` | `conf_auditor` | Lectura |
 | 4 | `03_cifrado_red.sql` | `conf_auditor` | Lectura |

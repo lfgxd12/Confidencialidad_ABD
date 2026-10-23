@@ -1,5 +1,5 @@
 SET LINESIZE 220 PAGESIZE 100 FEEDBACK ON
-SPOOL 06_respaldos_logs_parcheo.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\06_respaldos_logs_parcheo.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 COLUMN name FORMAT A60
 COLUMN input_type FORMAT A15

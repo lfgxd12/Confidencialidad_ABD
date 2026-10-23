@@ -1,5 +1,5 @@
 SET LINESIZE 220 PAGESIZE 100 FEEDBACK ON
-SPOOL 08_matriz_evaluacion.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\08_matriz_evaluacion.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 COLUMN ctl FORMAT A8
 COLUMN evidencia FORMAT A70
@@ -64,7 +64,7 @@ WITH r AS (
          CASE WHEN n = 0 THEN 4 WHEN n <= 2 THEN 2 ELSE 0 END
     FROM (SELECT COUNT(*) n FROM dba_users
            WHERE oracle_maintained = 'N' AND account_status = 'OPEN'
-             AND (last_login IS NULL OR last_login < SYSTIMESTAMP - INTERVAL '120' DAY))
+             AND (last_login IS NULL OR last_login < SYSTIMESTAMP - INTERVAL '120' DAY(3)))
   UNION ALL
   SELECT 'A8.24', 'Almacen de llaves TDE abierto',
          CASE WHEN n > 0 THEN 4 ELSE 0 END
@@ -88,7 +88,7 @@ WITH r AS (
   SELECT 'A8.8', 'Parche SQL exitoso en los ultimos 365 dias',
          CASE WHEN n > 0 THEN 4 ELSE 1 END
     FROM (SELECT COUNT(*) n FROM dba_registry_sqlpatch
-           WHERE status = 'SUCCESS' AND action_time > SYSTIMESTAMP - INTERVAL '365' DAY)
+           WHERE status = 'SUCCESS' AND action_time > SYSTIMESTAMP - INTERVAL '365' DAY(3))
 )
 SELECT ctl, evidencia, crit AS criterio,
        CASE WHEN crit = 4 THEN 'Cumple' WHEN crit >= 2 THEN 'Parcial' ELSE 'No cumple' END estado

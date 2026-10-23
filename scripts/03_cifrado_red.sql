@@ -1,5 +1,5 @@
 SET LINESIZE 200 PAGESIZE 100 FEEDBACK ON
-SPOOL 03_cifrado_red.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\03_cifrado_red.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 COLUMN wrl_type FORMAT A12
 COLUMN wrl_parameter FORMAT A50

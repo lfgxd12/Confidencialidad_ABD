@@ -1,5 +1,5 @@
 SET FEEDBACK ON
-SPOOL 07_limpieza_demo.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\07_limpieza_demo.log
 NOAUDIT POLICY pol_conf_clientes;
 DROP AUDIT POLICY pol_conf_clientes;
 NOAUDIT POLICY pol_conf_privilegiados;

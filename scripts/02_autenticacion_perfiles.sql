@@ -1,5 +1,5 @@
 SET LINESIZE 200 PAGESIZE 100 FEEDBACK ON
-SPOOL 02_autenticacion_perfiles.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\02_autenticacion_perfiles.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 COLUMN username FORMAT A25
 COLUMN profile FORMAT A20
@@ -18,7 +18,7 @@ PROMPT === OBS-09 Cuentas abiertas de usuario sin uso en 120 dias o sin ingreso 
 SELECT username, account_status, profile, last_login
   FROM dba_users
  WHERE oracle_maintained = 'N' AND account_status = 'OPEN'
-   AND (last_login IS NULL OR last_login < SYSTIMESTAMP - INTERVAL '120' DAY);
+   AND (last_login IS NULL OR last_login < SYSTIMESTAMP - INTERVAL '120' DAY(3));
 PROMPT === Parametros de autenticacion
 SELECT name, value FROM v$parameter
  WHERE name IN ('remote_login_passwordfile','sec_max_failed_login_attempts',

@@ -1,5 +1,5 @@
 SET LINESIZE 220 PAGESIZE 100 FEEDBACK ON
-SPOOL 05b_consulta_auditoria.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\05b_consulta_auditoria.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 COLUMN dbusername FORMAT A15
 COLUMN action_name FORMAT A18

@@ -1,5 +1,5 @@
 SET LINESIZE 200 PAGESIZE 100 FEEDBACK ON
-SPOOL 04_masking_demo.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\04_masking_demo.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
 PROMPT Conectado como SYS al PDB (XEPDB1). Crea el esquema demo de clasificacion y masking.
 CREATE USER conf_demo IDENTIFIED BY "Conf_Demo#2026" DEFAULT TABLESPACE users QUOTA UNLIMITED ON users;

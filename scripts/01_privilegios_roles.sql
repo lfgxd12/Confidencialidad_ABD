@@ -1,7 +1,11 @@
 SET LINESIZE 200 PAGESIZE 100 FEEDBACK ON
-SPOOL 01_privilegios_roles.log
+SPOOL C:\Users\lfgxd\Desktop\Confidencialidad_ABD_119130110\evidencias\01_privilegios_roles.log
 SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24:MI:SS TZR') AS fecha FROM dual;
-COLUMN grantee FORMAT A25
+COLUMN grantee FORMAT A30
+COLUMN owner FORMAT A12
+COLUMN username FORMAT A15
+COLUMN directory_name FORMAT A28
+COLUMN directory_path FORMAT A70
 COLUMN privilege FORMAT A35
 COLUMN granted_role FORMAT A30
 COLUMN table_name FORMAT A25

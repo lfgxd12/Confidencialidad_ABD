@@ -7,14 +7,20 @@ FECHA
 ----------------------------------------------------
 SYS                                                                                                                              
 XEPDB1                                                                                                                                                                                                  
-2026-10-22 09:34:23 -06:00                          
+2026-10-22 22:05:53 -06:00                          
 
 
 1 fila seleccionada. 
 
 
-User CONF_AUDITOR creado.
+Error que empieza en la línea: 4 del comando :
+CREATE USER conf_auditor IDENTIFIED BY "Conf_Auditor#2026"
+Informe de error -
+ORA-01920: conflicto entre el nombre de usuario 'CONF_AUDITOR' y otro nombre de usuario o rol
 
+https://docs.oracle.com/error-help/db/ora-01920/01920. 00000 -  "user name '%s' conflicts with another user or role name"
+*Cause:    There is already a user or role with that name.
+*Action:   Specify a different user name.
 
 Grant correcto.
 

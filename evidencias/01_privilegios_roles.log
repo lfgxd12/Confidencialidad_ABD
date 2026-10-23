@@ -7,7 +7,7 @@ FECHA
 ----------------------------------------------------
 CONF_AUDITOR                                                                                                                     
 XEPDB1                                                                                                                                                                                                  
-2026-10-22 22:00:15 -06:00                          
+2026-10-22 22:06:53 -06:00                          
 
 
 1 fila seleccionada. 
@@ -22,136 +22,71 @@ XEPDB1
 
 === OBS-03 Roles otorgados con ADMIN OPTION o heredados
 
-GRANTEE                   GRANTED_ROLE                   ADM INH
-------------------------- ------------------------------ --- ---
-PDBADMIN                  PDB_DBA                        YES NO 
+GRANTEE                        GRANTED_ROLE                   ADM INH
+------------------------------ ------------------------------ --- ---
+PDBADMIN                       PDB_DBA                        YES NO 
 
 1 fila seleccionada. 
 
 === OBS-04 Usuarios con privilegios administrativos (archivo de contrasenas)
 
-USERNAME                                                                                                                         SYSDB SYSOP SYSBA SYSDG SYSKM
--------------------------------------------------------------------------------------------------------------------------------- ----- ----- ----- ----- -----
-SYS                                                                                                                              TRUE  TRUE  FALSE FALSE FALSE
+USERNAME        SYSDB SYSOP SYSBA SYSDG SYSKM
+--------------- ----- ----- ----- ----- -----
+SYS             TRUE  TRUE  FALSE FALSE FALSE
 
 1 fila seleccionada. 
 
 === OBS-05 Privilegios sobre paquetes de salida de datos otorgados a PUBLIC
 
-GRANTEE                   OWNER                                                                                                                            TABLE_NAME
-------------------------- -------------------------------------------------------------------------------------------------------------------------------- -------------------------
-PRIVILEGE                          
------------------------------------
-PUBLIC                    SYS                                                                                                                              UTL_TCP                   
-EXECUTE                            
-
-PUBLIC                    SYS                                                                                                                              UTL_HTTP                  
-EXECUTE                            
-
-PUBLIC                    SYS                                                                                                                              UTL_FILE                  
-EXECUTE                            
-
-PUBLIC                    SYS                                                                                                                              UTL_INADDR                
-EXECUTE                            
-
-PUBLIC                    SYS                                                                                                                              UTL_SMTP                  
-EXECUTE                            
-
-PUBLIC                    SYS                                                                                                                              DBMS_LDAP                 
-EXECUTE                            
-
+GRANTEE                        OWNER        TABLE_NAME                PRIVILEGE                          
+------------------------------ ------------ ------------------------- -----------------------------------
+PUBLIC                         SYS          UTL_TCP                   EXECUTE                            
+PUBLIC                         SYS          UTL_HTTP                  EXECUTE                            
+PUBLIC                         SYS          UTL_FILE                  EXECUTE                            
+PUBLIC                         SYS          UTL_INADDR                EXECUTE                            
+PUBLIC                         SYS          UTL_SMTP                  EXECUTE                            
+PUBLIC                         SYS          DBMS_LDAP                 EXECUTE                            
 
 6 filas seleccionadas. 
 
 === OBS-06 Directorios y roles de exportacion
 
-OWNER
---------------------------------------------------------------------------------------------------------------------------------
-DIRECTORY_NAME
---------------------------------------------------------------------------------------------------------------------------------
-DIRECTORY_PATH                                                                                                                                                                                          
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SYS                                                                                                                              
-ORACLECLRDIR                                                                                                                     
-C:\app\lfgxd\product\21c\dbhomeXE\bin\clr                                                                                                                                                               
+OWNER        DIRECTORY_NAME               DIRECTORY_PATH                                                        
+------------ ---------------------------- ----------------------------------------------------------------------
+SYS          ORACLECLRDIR                 C:\app\lfgxd\product\21c\dbhomeXE\bin\clr                             
+SYS          SDO_DIR_ADMIN                C:\app\lfgxd\product\21c\dbhomeXE/md/admin                            
+SYS          XMLDIR                       C:\app\lfgxd\product\21c\dbhomeXE\rdbms\xml                           
+SYS          XSDDIR                       C:\app\lfgxd\product\21c\dbhomeXE\rdbms\xml\schema                    
+SYS          ORACLE_OCM_CONFIG_DIR2       C:\app\lfgxd\product\21c\homes\OraDB21Home1\ccr\state                 
+SYS          ORACLE_OCM_CONFIG_DIR        C:\app\lfgxd\product\21c\homes\OraDB21Home1\ccr\state                 
+SYS          ORACLE_BASE                  C:\app\lfgxd\product\21c                                              
+SYS          ORACLE_HOME                  C:\app\lfgxd\product\21c\dbhomeXE                                     
+SYS          OPATCH_INST_DIR              C:\app\lfgxd\product\21c\dbhomeXE\OPatch                              
+SYS          DATA_PUMP_DIR                C:\app\lfgxd\product\21c\admin\xe\dpdump/967575F77AF54892B37BAF2D816F3
+                                          D1D                                                                   
 
-SYS                                                                                                                              
-SDO_DIR_ADMIN                                                                                                                    
-C:\app\lfgxd\product\21c\dbhomeXE/md/admin                                                                                                                                                              
-
-SYS                                                                                                                              
-XMLDIR                                                                                                                           
-C:\app\lfgxd\product\21c\dbhomeXE\rdbms\xml                                                                                                                                                             
-
-SYS                                                                                                                              
-XSDDIR                                                                                                                           
-C:\app\lfgxd\product\21c\dbhomeXE\rdbms\xml\schema                                                                                                                                                      
-
-SYS                                                                                                                              
-ORACLE_OCM_CONFIG_DIR2                                                                                                           
-C:\app\lfgxd\product\21c\homes\OraDB21Home1\ccr\state                                                                                                                                                   
-
-SYS                                                                                                                              
-ORACLE_OCM_CONFIG_DIR                                                                                                            
-C:\app\lfgxd\product\21c\homes\OraDB21Home1\ccr\state                                                                                                                                                   
-
-SYS                                                                                                                              
-ORACLE_BASE                                                                                                                      
-C:\app\lfgxd\product\21c                                                                                                                                                                                
-
-SYS                                                                                                                              
-ORACLE_HOME                                                                                                                      
-C:\app\lfgxd\product\21c\dbhomeXE                                                                                                                                                                       
-
-SYS                                                                                                                              
-OPATCH_INST_DIR                                                                                                                  
-C:\app\lfgxd\product\21c\dbhomeXE\OPatch                                                                                                                                                                
-
-SYS                                                                                                                              
-DATA_PUMP_DIR                                                                                                                    
-C:\app\lfgxd\product\21c\admin\xe\dpdump/967575F77AF54892B37BAF2D816F3D1D                                                                                                                               
-
-SYS                                                                                                                              
-DBMS_OPTIM_LOGDIR                                                                                                                
-C:\app\lfgxd\product\21c\dbhomeXE/cfgtoollogs                                                                                                                                                           
-
-SYS                                                                                                                              
-DBMS_OPTIM_ADMINDIR                                                                                                              
-C:\app\lfgxd\product\21c\dbhomeXE/rdbms/admin                                                                                                                                                           
-
-SYS                                                                                                                              
-OPATCH_SCRIPT_DIR                                                                                                                
-C:\app\lfgxd\product\21c\dbhomeXE\QOpatch                                                                                                                                                               
-
-SYS                                                                                                                              
-OPATCH_LOG_DIR                                                                                                                   
-C:\app\lfgxd\product\21c\homes\OraDB21Home1\rdbms\log                                                                                                                                                   
-
-SYS                                                                                                                              
-JAVA$JOX$CUJS$DIRECTORY$                                                                                                         
-C:\APP\LFGXD\PRODUCT\21C\DBHOMEXE\JAVAVM\ADMIN\                                                                                                                                                         
-
+SYS          DBMS_OPTIM_LOGDIR            C:\app\lfgxd\product\21c\dbhomeXE/cfgtoollogs                         
+SYS          DBMS_OPTIM_ADMINDIR          C:\app\lfgxd\product\21c\dbhomeXE/rdbms/admin                         
+SYS          OPATCH_SCRIPT_DIR            C:\app\lfgxd\product\21c\dbhomeXE\QOpatch                             
+SYS          OPATCH_LOG_DIR               C:\app\lfgxd\product\21c\homes\OraDB21Home1\rdbms\log                 
+SYS          JAVA$JOX$CUJS$DIRECTORY$     C:\APP\LFGXD\PRODUCT\21C\DBHOMEXE\JAVAVM\ADMIN\                       
 
 15 filas seleccionadas. 
 
 
-GRANTEE                   GRANTED_ROLE                  
-------------------------- ------------------------------
-GSMADMIN_INTERNAL         DATAPUMP_EXP_FULL_DATABASE    
-DATAPUMP_IMP_FULL_DATABAS EXP_FULL_DATABASE             
-E                                                       
-
-DBA                       DATAPUMP_EXP_FULL_DATABASE    
-GSMADMIN_INTERNAL         DATAPUMP_IMP_FULL_DATABASE    
-DBA                       EXP_FULL_DATABASE             
-DBA                       DATAPUMP_IMP_FULL_DATABASE    
-DATAPUMP_EXP_FULL_DATABAS EXP_FULL_DATABASE             
-E                                                       
-
-SYS                       EXP_FULL_DATABASE             
-SYS                       DATAPUMP_EXP_FULL_DATABASE    
-GSMUSER_ROLE              DATAPUMP_EXP_FULL_DATABASE    
-SYS                       DATAPUMP_IMP_FULL_DATABASE    
+GRANTEE                        GRANTED_ROLE                  
+------------------------------ ------------------------------
+GSMADMIN_INTERNAL              DATAPUMP_EXP_FULL_DATABASE    
+DATAPUMP_IMP_FULL_DATABASE     EXP_FULL_DATABASE             
+DBA                            DATAPUMP_EXP_FULL_DATABASE    
+GSMADMIN_INTERNAL              DATAPUMP_IMP_FULL_DATABASE    
+DBA                            EXP_FULL_DATABASE             
+DBA                            DATAPUMP_IMP_FULL_DATABASE    
+DATAPUMP_EXP_FULL_DATABASE     EXP_FULL_DATABASE             
+SYS                            EXP_FULL_DATABASE             
+SYS                            DATAPUMP_EXP_FULL_DATABASE    
+GSMUSER_ROLE                   DATAPUMP_EXP_FULL_DATABASE    
+SYS                            DATAPUMP_IMP_FULL_DATABASE    
 
 11 filas seleccionadas. 
 
