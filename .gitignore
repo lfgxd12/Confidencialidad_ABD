@@ -6,3 +6,6 @@ panel/.env
 panel/.venv/
 __pycache__/
 .pytest_cache/
+.claude/
+.agents/
+panel/.agents/
