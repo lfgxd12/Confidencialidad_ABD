@@ -17,8 +17,5 @@ AUDIT POLICY pol_conf_clientes;
 CREATE AUDIT POLICY pol_conf_privilegiados
   ACTIONS CREATE USER, ALTER USER, DROP USER, GRANT, REVOKE, CREATE ROLE;
 AUDIT POLICY pol_conf_privilegiados;
-PROMPT Politicas creadas. Ahora, desde otra hoja conectada como CONF_ANALISTA, ejecute:
-PROMPT SELECT * FROM conf_demo.v_clientes_mask;
-PROMPT SELECT * FROM conf_demo.clientes;
-PROMPT Luego ejecute 05b_consulta_auditoria.sql como SYS.
+PROMPT Politicas creadas. Ahora ejecute 05c_pruebas_analista.sql con la conexion CONF_ANALISTA_XEPDB1 y luego 05b_consulta_auditoria.sql como SYS.
 SPOOL OFF

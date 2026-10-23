@@ -1,0 +1,119 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+SYS                                                                                                                              
+XEPDB1                                                                                                                                                                                                  
+2026-10-22 22:56:42 -06:00                          
+
+
+1 fila seleccionada. 
+
+Conectado como SYS al PDB (XEPDB1). Crea el esquema demo de clasificacion y masking.
+
+User CONF_DEMO creado.
+
+
+Grant correcto.
+
+
+Table CONF_DEMO.CLIENTES creado.
+
+
+1 fila insertadas.
+
+
+1 fila insertadas.
+
+
+1 fila insertadas.
+
+Confirmación terminada.
+
+Comment creado.
+
+
+Comment creado.
+
+
+Comment creado.
+
+
+View CONF_DEMO.V_CLIENTES_MASK creado.
+
+
+Role ROL_CONSULTA_MASK creado.
+
+
+Grant correcto.
+
+
+User CONF_ANALISTA creado.
+
+
+Grant correcto.
+
+
+Grant correcto.
+
+=== OBS-12 Columnas clasificadas
+
+OWNER
+--------------------------------------------------------------------------------------------------------------------------------
+TABLE_NAME
+--------------------------------------------------------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------------------------------------------------------
+COMMENTS                                                                                                                                                                                                
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CONF_DEMO                                                                                                                        
+CLIENTES                                                                                                                         
+CEDULA                                                                                                                           
+CLASIF=CONFIDENCIAL;Ley8968=dato personal                                                                                                                                                               
+
+CONF_DEMO                                                                                                                        
+CLIENTES                                                                                                                         
+TARJETA                                                                                                                          
+CLASIF=RESTRINGIDO;PCI                                                                                                                                                                                  
+
+CONF_DEMO                                                                                                                        
+CLIENTES                                                                                                                         
+SALARIO                                                                                                                          
+CLASIF=CONFIDENCIAL                                                                                                                                                                                     
+
+
+3 filas seleccionadas. 
+
+=== OBS-13 Privilegios efectivos del analista
+
+GRANTEE
+--------------------------------------------------------------------------------------------------------------------------------
+OWNER
+--------------------------------------------------------------------------------------------------------------------------------
+TABLE_NAME                                                                                                                       PRIVILEGE                               
+-------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ROL_CONSULTA_MASK                                                                                                                
+CONF_DEMO                                                                                                                        
+V_CLIENTES_MASK                                                                                                                  SELECT                                  
+
+
+1 fila seleccionada. 
+
+
+GRANTEE
+--------------------------------------------------------------------------------------------------------------------------------
+GRANTED_ROLE                                                                                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+CONF_ANALISTA                                                                                                                    
+ROL_CONSULTA_MASK                                                                                                               
+
+
+1 fila seleccionada. 
+
+=== Politicas de Data Redaction si la edicion las soporta
+
+0 filas seleccionadas. 
+

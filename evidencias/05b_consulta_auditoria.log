@@ -1,0 +1,95 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+SYS                                                                                                                              
+XEPDB1                                                                                                                                                                                                                      
+2026-10-22 23:15:35 -06:00                          
+
+
+1 fila seleccionada. 
+
+Procedimiento PL/SQL terminado correctamente.
+=== OBS-15 Registros de la pista de auditoria sobre objetos confidenciales
+
+EVENT_TIMESTAMP                DBUSERNAME      ACTION_NAME        OBJECT_NAME            RETURN_CODE UNIFIED_AUDIT_POLICIES             
+------------------------------ --------------- ------------------ ---------------------- ----------- -----------------------------------
+22/10/26 11:15:01,914000000 PM CONF_ANALISTA   SELECT             CLIENTES                      2004 POL_CONF_CLIENTES                  
+22/10/26 11:15:01,911000000 PM CONF_ANALISTA   SELECT             CLIENTES                      2004 POL_CONF_CLIENTES                  
+22/10/26 11:15:01,901000000 PM CONF_ANALISTA   SELECT             V_CLIENTES_MASK                  0 POL_CONF_CLIENTES                  
+22/10/26 11:15:01,899000000 PM CONF_ANALISTA   SELECT             CLIENTES                         0 POL_CONF_CLIENTES                  
+22/10/26 10:56:43,957000000 PM SYS             GRANT              V_CLIENTES_MASK                  0 ORA_SECURECONFIG                   
+22/10/26 10:56:43,163000000 PM SYS             CREATE TABLE       CLIENTES                         0 ORA_SECURECONFIG                   
+
+6 filas seleccionadas. 
+
+=== Retencion y parametros de gestion de la pista
+
+AUDIT_TRAIL
+----------------------------
+PARAMETER_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PARAMETER_VALUE                                                                                                                                                                                                             
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+STANDARD AUDIT TRAIL         
+DB AUDIT TABLESPACE                                                                                                                                                                                                         
+SYSAUX                                                                                                                                                                                                                      
+
+FGA AUDIT TRAIL              
+DB AUDIT TABLESPACE                                                                                                                                                                                                         
+SYSAUX                                                                                                                                                                                                                      
+
+UNIFIED AUDIT TRAIL          
+DB AUDIT TABLESPACE                                                                                                                                                                                                         
+SYSAUX                                                                                                                                                                                                                      
+
+OS AUDIT TRAIL               
+AUDIT FILE MAX SIZE                                                                                                                                                                                                         
+10000                                                                                                                                                                                                                       
+
+XML AUDIT TRAIL              
+AUDIT FILE MAX SIZE                                                                                                                                                                                                         
+10000                                                                                                                                                                                                                       
+
+OS AUDIT TRAIL               
+AUDIT FILE MAX AGE                                                                                                                                                                                                          
+5                                                                                                                                                                                                                           
+
+XML AUDIT TRAIL              
+AUDIT FILE MAX AGE                                                                                                                                                                                                          
+5                                                                                                                                                                                                                           
+
+STANDARD AUDIT TRAIL         
+DB AUDIT CLEAN BATCH SIZE                                                                                                                                                                                                   
+10000                                                                                                                                                                                                                       
+
+FGA AUDIT TRAIL              
+DB AUDIT CLEAN BATCH SIZE                                                                                                                                                                                                   
+10000                                                                                                                                                                                                                       
+
+OS AUDIT TRAIL               
+OS FILE CLEAN BATCH SIZE                                                                                                                                                                                                    
+1000                                                                                                                                                                                                                        
+
+XML AUDIT TRAIL              
+OS FILE CLEAN BATCH SIZE                                                                                                                                                                                                    
+1000                                                                                                                                                                                                                        
+
+UNIFIED AUDIT TRAIL          
+AUDIT WRITE MODE                                                                                                                                                                                                            
+QUEUED WRITE MODE                                                                                                                                                                                                           
+
+UNIFIED AUDIT TRAIL          
+AUDIT FILE MAX SIZE                                                                                                                                                                                                         
+10000                                                                                                                                                                                                                       
+
+UNIFIED AUDIT TRAIL          
+AUDIT FILE MAX AGE                                                                                                                                                                                                          
+5                                                                                                                                                                                                                           
+
+
+14 filas seleccionadas. 
+

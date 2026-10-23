@@ -29,8 +29,9 @@ Oracle Database 21c XE (multitenant, PDB `XEPDB1`), Oracle SQL Developer.
 | 5 | `06_respaldos_logs_parcheo.sql` | `conf_auditor` | Lectura |
 | 6 | `04_masking_demo.sql` | SYS | Crea el esquema de demostración |
 | 7 | `05a_politicas_auditoria.sql` | SYS | Crea políticas de auditoría |
-| 8 | Consultas manuales indicadas en el 05a | `conf_analista` | Genera eventos auditables |
+| 8 | `05c_pruebas_analista.sql` | `conf_analista` | Genera eventos auditables y prueba el masking |
 | 9 | `05b_consulta_auditoria.sql` | SYS | Consulta la pista de auditoría |
+| 9b | `05d_prueba_privilegiados.sql` | SYS | Prueba la política de acciones privilegiadas |
 | 10 | `08_matriz_evaluacion.sql` | `conf_auditor` | Calcula criterio y estado |
 | 11 | `07_limpieza_demo.sql` | SYS | Elimina los usuarios y políticas de demostración |
 

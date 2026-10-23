@@ -1,0 +1,44 @@
+
+Noaudit correcto.
+
+
+Audit POLICY borrado.
+
+
+Noaudit correcto.
+
+
+Audit POLICY borrado.
+
+
+Error que empieza en la línea: 7 del comando :
+DROP USER conf_analista
+Informe de error -
+ORA-01940: no se puede borrar un usuario conectado actualmente
+
+https://docs.oracle.com/error-help/db/ora-01940/01940. 00000 -  "cannot drop a user who is currently connected"
+*Cause:    An attempt was made to drop a user who was logged in.
+*Action:   Ensure the user is logged off and then repeat the command.
+
+Role ROL_CONSULTA_MASK borrado.
+
+
+User CONF_DEMO borrado.
+
+
+Error que empieza en la línea: 10 del comando :
+DROP USER conf_auditor
+Informe de error -
+ORA-01940: no se puede borrar un usuario conectado actualmente
+
+https://docs.oracle.com/error-help/db/ora-01940/01940. 00000 -  "cannot drop a user who is currently connected"
+*Cause:    An attempt was made to drop a user who was logged in.
+*Action:   Ensure the user is logged off and then repeat the command.
+
+USERNAME                                                                                                                        
+--------------------------------------------------------------------------------------------------------------------------------
+CONF_ANALISTA
+CONF_AUDITOR
+
+2 filas seleccionadas. 
+

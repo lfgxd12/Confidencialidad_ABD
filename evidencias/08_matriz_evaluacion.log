@@ -1,0 +1,35 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+CONF_AUDITOR                                                                                                                     
+XEPDB1                                                                                                                                                                                                                      
+2026-10-22 23:31:30 -06:00                          
+
+
+1 fila seleccionada. 
+
+
+CTL      EVIDENCIA                                                                CRITERIO ESTADO      
+-------- ---------------------------------------------------------------------- ---------- ------------
+A5.17    Cuentas con contrasena por defecto (CIS 4.1)                                    4 Cumple      
+A5.17    PASSWORD_VERIFY_FUNCTION del perfil DEFAULT (CIS 3.7)                           0 No cumple   
+A5.17    PASSWORD_LIFE_TIME del perfil DEFAULT (CIS 3.3: 90 o menos)                     2 Parcial     
+A5.17    PASSWORD_LOCK_TIME del perfil DEFAULT (CIS 3.2: 1 o mas)                        4 Cumple      
+A5.18    Cuentas abiertas sin uso en 120 dias                                            2 Parcial     
+A5.18    INACTIVE_ACCOUNT_TIME del perfil DEFAULT (CIS 3.9: 120 o menos)                 2 Parcial     
+A8.12    PUBLIC con EXECUTE sobre paquetes UTL_*                                         1 No cumple   
+A8.13    ARCHIVELOG activo (respaldo y cifrado se evaluan con RMAN, 06b)                 2 Parcial     
+A8.15    Politicas de auditoria unificada habilitadas                                    4 Cumple      
+A8.2     Cuentas de usuario con privilegios ANY                                          4 Cumple      
+A8.2     Cuentas de usuario con el rol DBA                                               4 Cumple      
+A8.20    Sesiones con adaptador de cifrado de red activo                                 1 No cumple   
+A8.24    Almacen de llaves TDE abierto                                                   0 No cumple   
+A8.5     FAILED_LOGIN_ATTEMPTS del perfil DEFAULT (CIS 3.1: 5 o menos)                   2 Parcial     
+A8.8     Parche SQL exitoso en los ultimos 365 dias                                      1 No cumple   
+
+15 filas seleccionadas. 
+

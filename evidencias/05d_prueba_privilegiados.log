@@ -1,0 +1,38 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+SYS                                                                                                                              
+XEPDB1                                                                                                                                                                                                                      
+2026-10-22 23:31:09 -06:00                          
+
+
+1 fila seleccionada. 
+
+
+User CONF_PRUEBA creado.
+
+
+Grant correcto.
+
+
+User CONF_PRUEBA borrado.
+
+Procedimiento PL/SQL terminado correctamente.
+=== PT-07 Eventos de la politica de acciones privilegiadas
+
+EVENT_TIMESTAMP                DBUSERNAME      ACTION_NAME        OBJECT_NAME            RETURN_CODE UNIFIED_AUDIT_POLICIES             
+------------------------------ --------------- ------------------ ---------------------- ----------- -----------------------------------
+22/10/26 11:31:12,596000000 PM SYS             DROP USER          CONF_PRUEBA                      0 POL_CONF_PRIVILEGIADOS, ORA_SECUREC
+                                                                                                     ONFIG                              
+
+22/10/26 11:31:09,946000000 PM SYS             GRANT                                               0 POL_CONF_PRIVILEGIADOS             
+22/10/26 11:31:09,904000000 PM SYS             CREATE USER        CONF_PRUEBA                      0 POL_CONF_PRIVILEGIADOS, ORA_SECUREC
+                                                                                                     ONFIG                              
+
+
+3 filas seleccionadas. 
+

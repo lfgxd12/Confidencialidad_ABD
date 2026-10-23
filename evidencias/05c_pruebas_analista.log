@@ -1,0 +1,48 @@
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+CONTENEDOR
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FECHA                                               
+----------------------------------------------------
+CONF_ANALISTA                                                                                                                    
+XEPDB1                                                                                                                                                                                                  
+2026-10-22 23:15:01 -06:00                          
+
+
+1 fila seleccionada. 
+
+=== PT-05 Consulta a la vista enmascarada
+
+        ID NOMBRE                                                       CEDULA      TARJETA            
+---------- ------------------------------------------------------------ ----------- -------------------
+         1 Ana Mora                                                     1-XXXX-XXXX XXXX-XXXX-XXXX-4444
+         2 Luis Rojas                                                   2-XXXX-XXXX XXXX-XXXX-XXXX-3333
+         3 Sara Vega                                                    3-XXXX-XXXX XXXX-XXXX-XXXX-7777
+
+3 filas seleccionadas. 
+
+=== PT-04 Consulta directa a la tabla base (debe fallar con ORA-00942)
+
+Error que empieza en la línea: 7 del comando -
+SELECT * FROM conf_demo.clientes
+Error en la línea de comandos : 7 Columna : 25
+Informe de error -
+Error SQL: ORA-00942: la tabla o vista no existe
+
+https://docs.oracle.com/error-help/db/ora-00942/00942. 00000 -  "table or view%s does not exist"
+*Cause:    The specified table or view did not exist, or a synonym
+           pointed to a table or view that did not exist.
+           To find existing user tables and views, query the
+           ALL_TABLES and ALL_VIEWS data dictionary views. Certain
+           privileges may be required to access the table. If an
+           application returned this message, then the table that the
+           application tried to access did not exist in the database, or
+           the application did not have access to it.
+*Action:   Check each of the following
+           - The spelling of the table or view name is correct.
+           - The referenced table or view name does exist.
+           - The synonym points to an existing table or view.
+
+More Details :
+https://docs.oracle.com/error-help/db/ora-00942/
