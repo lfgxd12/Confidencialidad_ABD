@@ -35,3 +35,9 @@ ORACLE_USER = os.getenv("ORACLE_USER", "")
 ORACLE_PASSWORD = os.getenv("ORACLE_PASSWORD", "")
 ORACLE_DSN = os.getenv("ORACLE_DSN", "localhost:1521/XEPDB1")
 LIVE_ENABLED = bool(ORACLE_USER and ORACLE_PASSWORD)
+
+# Laboratorio (escritura). Apagado por defecto; ver app/lab.py para el modelo de seguridad.
+LAB_ENABLED = os.getenv("LAB_ENABLED", "false").lower() == "true"
+SYS_PASSWORD = os.getenv("SYS_PASSWORD", "")
+ANALISTA_PASSWORD = os.getenv("ANALISTA_PASSWORD", "Conf_Analista#2026")  # clave de laboratorio, ya publica en el script 04
+EXPECTED_CON = os.getenv("LAB_EXPECTED_CON", "XEPDB1")

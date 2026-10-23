@@ -37,6 +37,7 @@ pre{background:var(--code);color:var(--codeink);padding:12px;border-radius:8px;o
 .lk{color:var(--acc);cursor:pointer;text-decoration:underline;margin-right:8px;font-size:12.5px;white-space:nowrap}
 .note{color:var(--mut);font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
 .warn{border-left:4px solid var(--pa);background:var(--pabg);padding:8px 12px;border-radius:6px;font-size:13px;margin:8px 0}
+.mod{background:var(--pabg);color:var(--pa)}.lec{background:var(--okbg);color:var(--ok)}.dng{border-color:var(--no)}
 .sr{position:absolute;left:-9999px}
 @media(max-width:600px){main{padding:10px}}
 </style>
@@ -56,7 +57,7 @@ const cls=s=>String(s).replace(/ /g,"-");
 const pill=s=>`<span class="pill ${cls(s)}">${esc(s)}</span>`;
 const api=async(u,o)=>{const r=await fetch(u,o);if(!r.ok){let m=r.statusText;try{m=(await r.json()).detail||m}catch(e){}throw new Error(m)}return r};
 const col=e=>e==="Cumple"?"var(--ok)":e==="Parcial"?"var(--pa)":"var(--no)";
-const TABS=["Resumen","Matriz","Riesgos y tareas","Controles","Pruebas","Hallazgos","Evidencias","En vivo"];
+const TABS=["Resumen","Matriz","Riesgos y tareas","Controles","Pruebas","Hallazgos","Evidencias","En vivo","Laboratorio"];
 let tab=0,S={},evSel=null;
 
 function nav(){$("#nav").innerHTML=TABS.map((t,i)=>`<button role="tab" aria-selected="${i===tab}" data-i="${i}">${t}</button>`).join("");
@@ -124,9 +125,33 @@ function vivo(){const ok=S.svc.modo_vivo_disponible;
    <p class="note">Diferencias esperadas: el script 07 eliminó el usuario auditor y las políticas de la demostración (T-09 baja de 4 a la línea base), y A8.20 mide la sesión del propio panel, no la de SQL Developer.</p>`}
   catch(e){$("#res").innerHTML=`<div class="warn">${esc(e.message)}</div>`}finally{b.disabled=false}}}
 
+
+async function laboratorio(){const c=await api("/api/lab/catalogo").then(r=>r.json());
+ const ok=c.habilitado;
+ $("#main").innerHTML=`<div class="card"><h3 style="margin-top:0">Laboratorio: ejecutar los scripts desde la web</h3>
+ <p>Corre los scripts del repositorio (lista blanca, sin SQL libre). Los que modifican usan <b>SYS</b> en <code>${esc(c.contenedor_esperado)}</code>; si la sesión cae en otro contenedor, no se ejecuta nada. Cada corrida se guarda en <code>evidencias/panel/</code> sin tocar los logs originales.</p>
+ ${ok?"":`<div class="warn">Laboratorio apagado. En <code>panel/.env</code> pon <code>LAB_ENABLED=true</code> y <code>SYS_PASSWORD=…</code> y reinicia el panel. Puedes ver la vista previa de cada script sin conexión.</div>`}
+ <div class="row"><button class="b" id="est" ${ok?"":"disabled"}>Ver qué existe ahora en la base</button><span id="estv" class="note"></span></div>
+ ${tabla(["Orden","Script","Usuario","Tipo","Qué hace","Requiere","Acciones"],c.scripts.map((x,i)=>[i+1,`<b>${x.id}</b> ${esc(x.titulo)}<br><span class="note">${esc(x.archivo)}</span>`,x.como,`<span class="pill ${x.modifica?"mod":"lec"}">${x.modifica?"Modifica":"Lectura"}</span>`,esc(x.efecto)+(x.revierte?`<br><span class="note">Se revierte con: ${esc(x.revierte)}</span>`:""),x.requiere.join(", ")||"—",`<a class="lk" data-vp="${x.id}">Vista previa</a><a class="lk" data-ej="${x.id}">Ejecutar</a>`]))}
+ </div><div id="panelrun" class="card" style="margin-top:12px;display:none"></div>`;
+ $("#est").onclick=async()=>{try{const r=await (await api("/api/lab/estado")).json();$("#estv").textContent="Usuarios CONF*: "+(r.usuarios.join(", ")||"ninguno")+" · Políticas: "+(r.politicas.join(", ")||"ninguna")}catch(e){$("#estv").textContent=e.message}};
+ const box=$("#panelrun");
+ $("#main").onclick=async e=>{
+  const vp=e.target.closest("[data-vp]"),ej=e.target.closest("[data-ej]");
+  if(vp){const id=vp.dataset.vp,r=await (await api("/api/lab/vista-previa/"+id)).json();box.style.display="block";
+   box.innerHTML=`<h4 style="margin-top:0">Vista previa del ${esc(id)} (se ejecutaría como ${esc(r.como)})</h4><pre>${esc(r.items.map(i=>i.tipo==="prompt"?"-- "+i.texto:i.texto+";").join("\n\n"))}</pre>`}
+  if(ej){const id=ej.dataset.ej,x=c.scripts.find(y=>y.id===id);box.style.display="block";box.className="card"+(x.modifica?" dng":"");
+   box.innerHTML=`<h4 style="margin-top:0">Ejecutar ${esc(id)} · ${esc(x.titulo)}</h4><p>${esc(x.efecto)} Usuario: <b>${esc(x.como)}</b>.</p>
+   <div class="row"><input id="cf" placeholder="Escribe: EJECUTAR ${esc(id)}" size="22" autocomplete="off" aria-label="Confirmación"><button class="b" id="run" disabled>Ejecutar</button></div><pre id="out" style="display:none"></pre>`;
+   const cf=$("#cf"),run=$("#run");cf.oninput=()=>{run.disabled=!ok||cf.value.trim()!=="EJECUTAR "+id};
+   run.onclick=async()=>{run.disabled=true;const o=$("#out");o.style.display="block";o.textContent="Ejecutando…";
+    try{const r=await (await api("/api/lab/ejecutar/"+id,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({confirmacion:cf.value.trim()})})).json();
+     o.textContent=r.salida+"\n— Guardado en evidencias/"+r.log+" · errores: "+r.errores}
+    catch(er){o.textContent="ERROR: "+er.message}finally{cf.value="";}}}}}
+
 async function go(){nav();const m=$("#main");try{
  S.svc??=await api("/api/estado").then(r=>r.json());S.res??=await api("/api/resumen").then(r=>r.json());S.mat??=await api("/api/matriz").then(r=>r.json());
- [resumen,matriz,riesgosTareas,controles,pruebas,hallazgos,evidencias,vivo][tab]()}catch(e){m.innerHTML=`<div class="warn">${esc(e.message)}</div>`}}
+ $("#main").onclick=null;$("#main").className="";[resumen,matriz,riesgosTareas,controles,pruebas,hallazgos,evidencias,vivo,laboratorio][tab]()}catch(e){m.innerHTML=`<div class="warn">${esc(e.message)}</div>`}}
 document.addEventListener("click",e=>{const a=e.target.closest("[data-ev]");if(a){evSel=a.dataset.ev;tab=6;go()}});
 go();
 </script>
