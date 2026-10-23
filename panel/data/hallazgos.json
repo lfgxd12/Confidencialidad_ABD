@@ -1,0 +1,66 @@
+[
+ {
+  "id": "H-01",
+  "hallazgo": "PUBLIC con EXECUTE en UTL_TCP, UTL_HTTP, UTL_FILE y UTL_SMTP",
+  "riesgo": "R-CONF-01",
+  "accion": "Revocar a PUBLIC y conceder solo a roles o cuentas que lo requieran, verificando dependencias y las ACL de red",
+  "prioridad": "Alta",
+  "control": "A8.12"
+ },
+ {
+  "id": "H-02",
+  "hallazgo": "Perfil DEFAULT laxo: 10 intentos, vida 180 días, inactividad 365 y sin función de verificación",
+  "riesgo": "R-CONF-02",
+  "accion": "Asignar ORA_CIS_PROFILE a los usuarios y ajustar DEFAULT a los valores del CIS",
+  "prioridad": "Alta",
+  "control": "A5.17, A8.5"
+ },
+ {
+  "id": "H-03",
+  "hallazgo": "Sin TDE: wallet no disponible y sin objetos cifrados",
+  "riesgo": "R-CONF-03",
+  "accion": "Configurar el almacén de llaves y cifrar los tablespaces sensibles si la edición lo permite; de lo contrario, documentar un control compensatorio",
+  "prioridad": "Alta",
+  "control": "A8.24"
+ },
+ {
+  "id": "H-04",
+  "hallazgo": "Respaldos sin cifrar y sin respaldo reciente (último, 05/10/2026)",
+  "riesgo": "R-CONF-03",
+  "accion": "Activar el cifrado de respaldos si está disponible, custodiar el destino y programar respaldos dentro de la ventana de retención",
+  "prioridad": "Alta",
+  "control": "A8.13"
+ },
+ {
+  "id": "H-05",
+  "hallazgo": "Sin cifrado de red ni restricción de nodos en el listener",
+  "riesgo": "R-CONF-06",
+  "accion": "Configurar cifrado en sqlnet.ora o TLS, y restringir orígenes con TCP.VALIDNODE_CHECKING",
+  "prioridad": "Media",
+  "control": "A8.20"
+ },
+ {
+  "id": "H-06",
+  "hallazgo": "Pista de auditoría en SYSAUX sin retención ni purga definidas",
+  "riesgo": "R-CONF-05",
+  "accion": "Definir retención y purga con DBMS_AUDIT_MGMT y enviar los registros a un SIEM",
+  "prioridad": "Media",
+  "control": "A5.33"
+ },
+ {
+  "id": "H-07",
+  "hallazgo": "PDBADMIN abierta sin ingreso registrado",
+  "riesgo": "R-CONF-01",
+  "accion": "Evaluar y bloquear la cuenta si no se requiere",
+  "prioridad": "Media",
+  "control": "A5.18"
+ },
+ {
+  "id": "H-08",
+  "hallazgo": "Sin parches registrados (edición XE)",
+  "riesgo": "R-CONF-01, R-CONF-06",
+  "accion": "Seguir las nuevas versiones del producto y documentar la limitación",
+  "prioridad": "Baja",
+  "control": "A8.8"
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "id": "R-CONF-01",
+  "riesgo": "Acceso no autorizado a datos por exceso o herencia de privilegios",
+  "amenaza": "Usuario interno o cuenta comprometida; privilegios ANY, roles anidados, PUBLIC",
+  "impacto": 5,
+  "probabilidad": 4,
+  "valor": 20,
+  "nivel": "Alto"
+ },
+ {
+  "id": "R-CONF-02",
+  "riesgo": "Suplantación por credenciales débiles, por defecto o compartidas",
+  "amenaza": "Ataque de fuerza bruta o reutilización; contraseñas por defecto, perfiles laxos",
+  "impacto": 5,
+  "probabilidad": 3,
+  "valor": 15,
+  "nivel": "Alto"
+ },
+ {
+  "id": "R-CONF-03",
+  "riesgo": "Fuga por respaldos, archivos de datos o redo archivados sin cifrar",
+  "amenaza": "Robo o copia de medios; falta de TDE y de cifrado de RMAN",
+  "impacto": 5,
+  "probabilidad": 3,
+  "valor": 15,
+  "nivel": "Alto"
+ },
+ {
+  "id": "R-CONF-04",
+  "riesgo": "Exposición de datos reales en clones DEV/TEST",
+  "amenaza": "Copia de producción a ambientes menos protegidos; datos sin enmascarar",
+  "impacto": 4,
+  "probabilidad": 4,
+  "valor": 16,
+  "nivel": "Alto"
+ },
+ {
+  "id": "R-CONF-05",
+  "riesgo": "Acceso sin detección por auditoría y logs ausentes o manipulables",
+  "amenaza": "Abuso de privilegios sin rastro; sin políticas de auditoría ni monitoreo",
+  "impacto": 4,
+  "probabilidad": 4,
+  "valor": 16,
+  "nivel": "Alto"
+ },
+ {
+  "id": "R-CONF-06",
+  "riesgo": "Intercepción de tráfico o exposición del listener",
+  "amenaza": "Escucha de red; tráfico en claro, listener sin restricción de origen",
+  "impacto": 4,
+  "probabilidad": 3,
+  "valor": 12,
+  "nivel": "Medio"
+ }
+]

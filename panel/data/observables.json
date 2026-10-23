@@ -1,0 +1,107 @@
+[
+ {
+  "id": "OBS-01",
+  "que": "Privilegios ANY en cuentas de usuario",
+  "consulta": "DBA_SYS_PRIVS con oracle_maintained = 'N'",
+  "control": "A8.2",
+  "script": "01"
+ },
+ {
+  "id": "OBS-02",
+  "que": "Usuarios con el rol DBA",
+  "consulta": "DBA_ROLE_PRIVS con granted_role = 'DBA'",
+  "control": "A8.2",
+  "script": "01"
+ },
+ {
+  "id": "OBS-03",
+  "que": "Roles con ADMIN OPTION o heredados",
+  "consulta": "DBA_ROLE_PRIVS",
+  "control": "A5.18",
+  "script": "01"
+ },
+ {
+  "id": "OBS-04",
+  "que": "Cuentas con SYSDBA, SYSOPER, SYSBACKUP",
+  "consulta": "V$PWFILE_USERS",
+  "control": "A8.2",
+  "script": "01"
+ },
+ {
+  "id": "OBS-05",
+  "que": "PUBLIC con EXECUTE sobre UTL_FILE, UTL_HTTP, UTL_SMTP",
+  "consulta": "DBA_TAB_PRIVS",
+  "control": "A8.12",
+  "script": "01"
+ },
+ {
+  "id": "OBS-06",
+  "que": "Directorios y roles de exportación",
+  "consulta": "DBA_DIRECTORIES, roles de Data Pump",
+  "control": "A8.12",
+  "script": "01"
+ },
+ {
+  "id": "OBS-07",
+  "que": "Cuentas con contraseña por defecto",
+  "consulta": "DBA_USERS_WITH_DEFPWD",
+  "control": "A5.17",
+  "script": "02"
+ },
+ {
+  "id": "OBS-08",
+  "que": "Política de contraseñas por perfil",
+  "consulta": "DBA_PROFILES",
+  "control": "A5.17, A8.5",
+  "script": "02"
+ },
+ {
+  "id": "OBS-09",
+  "que": "Cuentas abiertas sin uso en 120 días",
+  "consulta": "DBA_USERS.LAST_LOGIN",
+  "control": "A5.18",
+  "script": "02"
+ },
+ {
+  "id": "OBS-10",
+  "que": "Estado del almacén de llaves TDE",
+  "consulta": "V$ENCRYPTION_WALLET",
+  "control": "A8.24",
+  "script": "03"
+ },
+ {
+  "id": "OBS-11",
+  "que": "Cifrado de red en sesiones",
+  "consulta": "V$SESSION_CONNECT_INFO",
+  "control": "A8.20",
+  "script": "03"
+ },
+ {
+  "id": "OBS-12",
+  "que": "Columnas clasificadas",
+  "consulta": "DBA_COL_COMMENTS",
+  "control": "A5.12",
+  "script": "04"
+ },
+ {
+  "id": "OBS-13",
+  "que": "Privilegios efectivos del rol de consulta enmascarada",
+  "consulta": "DBA_TAB_PRIVS, DBA_ROLE_PRIVS",
+  "control": "A8.11, A8.3",
+  "script": "04"
+ },
+ {
+  "id": "OBS-14",
+  "que": "Auditoría unificada habilitada y políticas activas",
+  "consulta": "V$OPTION, AUDIT_UNIFIED_ENABLED_POLICIES",
+  "control": "A8.15",
+  "script": "05a, 05b"
+ },
+ {
+  "id": "OBS-15",
+  "que": "Registros de acceso a objetos confidenciales",
+  "consulta": "UNIFIED_AUDIT_TRAIL",
+  "control": "A8.15, A5.33",
+  "script": "05a, 05b"
+ }
+]

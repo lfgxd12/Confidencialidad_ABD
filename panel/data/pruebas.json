@@ -1,0 +1,151 @@
+[
+ {
+  "id": "PT-01",
+  "tipo": "Consulta",
+  "procedimiento": "Ejecutar OBS-01 y OBS-02 y comparar con la matriz de roles aprobada",
+  "esperado": "Sin cuentas de usuario con privilegios ANY ni rol DBA no justificados",
+  "herramienta": "Script 01",
+  "obtenido": "Cumple: 0 cuentas con ANY ni DBA",
+  "resultado": "Cumple",
+  "logs": [
+   "01_privilegios_roles.log"
+  ]
+ },
+ {
+  "id": "PT-02",
+  "tipo": "Consulta",
+  "procedimiento": "Ejecutar OBS-05 sobre PUBLIC y UTL_FILE, UTL_HTTP, UTL_TCP, UTL_SMTP",
+  "esperado": "Sin EXECUTE para PUBLIC; de lo contrario, hallazgo",
+  "herramienta": "Script 01",
+  "obtenido": "Hallazgo: PUBLIC con EXECUTE en los cuatro, más UTL_INADDR y DBMS_LDAP",
+  "resultado": "Hallazgo",
+  "logs": [
+   "01_privilegios_roles.log"
+  ]
+ },
+ {
+  "id": "PT-03",
+  "tipo": "Consulta",
+  "procedimiento": "Ejecutar OBS-07 y OBS-08",
+  "esperado": "Cero cuentas con contraseña por defecto; perfiles con intentos fallidos limitados",
+  "herramienta": "Script 02",
+  "obtenido": "Cumple en cuentas (0); hallazgo en el perfil DEFAULT: 10 intentos y sin función de verificación",
+  "resultado": "Hallazgo",
+  "logs": [
+   "02_autenticacion_perfiles.log"
+  ]
+ },
+ {
+  "id": "PT-04",
+  "tipo": "Funcional negativa",
+  "procedimiento": "Con CONF_ANALISTA ejecutar una consulta directa a conf_demo.clientes",
+  "esperado": "Error ORA-00942: sin acceso a la tabla base",
+  "herramienta": "SQL Developer, script 05c",
+  "obtenido": "Cumple: ORA-00942",
+  "resultado": "Cumple",
+  "logs": [
+   "05c_pruebas_analista.log"
+  ]
+ },
+ {
+  "id": "PT-05",
+  "tipo": "Funcional",
+  "procedimiento": "Con CONF_ANALISTA consultar conf_demo.v_clientes_mask",
+  "esperado": "Cédula y tarjeta enmascaradas",
+  "herramienta": "SQL Developer, script 05c",
+  "obtenido": "Cumple: 3 filas con valores enmascarados",
+  "resultado": "Cumple",
+  "logs": [
+   "05c_pruebas_analista.log",
+   "04_masking_demo.log"
+  ]
+ },
+ {
+  "id": "PT-06",
+  "tipo": "Auditoría",
+  "procedimiento": "Tras PT-04 y PT-05, consultar UNIFIED_AUDIT_TRAIL",
+  "esperado": "Registros de ambos accesos con usuario, acción y código de retorno",
+  "herramienta": "Script 05b",
+  "obtenido": "Cumple: acceso a la vista (código 0) y 2 intentos fallidos a la tabla (código 2004)",
+  "resultado": "Cumple",
+  "logs": [
+   "05b_consulta_auditoria.log"
+  ]
+ },
+ {
+  "id": "PT-07",
+  "tipo": "Auditoría",
+  "procedimiento": "Crear y eliminar un usuario de prueba con pol_conf_privilegiados activa",
+  "esperado": "Eventos CREATE USER y DROP USER en la pista",
+  "herramienta": "Script 05d",
+  "obtenido": "Cumple: CREATE USER, GRANT y DROP USER registrados",
+  "resultado": "Cumple",
+  "logs": [
+   "05d_prueba_privilegiados.log"
+  ]
+ },
+ {
+  "id": "PT-08",
+  "tipo": "Configuración",
+  "procedimiento": "Consultar V$ENCRYPTION_WALLET",
+  "esperado": "Estado OPEN si la edición soporta TDE; si no, hallazgo documentado",
+  "herramienta": "Script 03",
+  "obtenido": "Hallazgo: NOT_AVAILABLE; TDE no configurado",
+  "resultado": "Hallazgo",
+  "logs": [
+   "03_cifrado_red.log"
+  ]
+ },
+ {
+  "id": "PT-09",
+  "tipo": "Configuración",
+  "procedimiento": "Ejecutar SHOW ALL y LIST BACKUP SUMMARY en RMAN",
+  "esperado": "Cifrado configurado y respaldo reciente",
+  "herramienta": "RMAN, 06b",
+  "obtenido": "Parcial: cifrado en OFF; 29 conjuntos del 05/10/26",
+  "resultado": "Parcial",
+  "logs": [
+   "06b_rman_showall.log"
+  ]
+ },
+ {
+  "id": "PT-10",
+  "tipo": "Configuración",
+  "procedimiento": "Consultar LOGMINING y EXECUTE_CATALOG_ROLE",
+  "esperado": "Solo cuentas administrativas autorizadas",
+  "herramienta": "Script 06",
+  "obtenido": "Cumple: solo SYS, DBA y roles de fábrica",
+  "resultado": "Cumple",
+  "logs": [
+   "06_respaldos_logs_parcheo.log"
+  ]
+ },
+ {
+  "id": "PT-11",
+  "tipo": "Red",
+  "procedimiento": "Revisar lsnrctl status, sqlnet.ora y los servicios de red de la sesión",
+  "esperado": "Listener restringido y cifrado de red observado",
+  "herramienta": "CMD, script 03",
+  "obtenido": "Hallazgo: TCP 1521 sin restricción de nodos; sin cifrado; sin adaptador de cifrado activo",
+  "resultado": "Hallazgo",
+  "logs": [
+   "03b_lsnrctl_status.txt",
+   "03c_sqlnet_ora.txt",
+   "03d_network_admin_dir.txt",
+   "03e_listener_ora.txt",
+   "03_cifrado_red.log"
+  ]
+ },
+ {
+  "id": "PT-12",
+  "tipo": "Evaluación",
+  "procedimiento": "Ejecutar 08_matriz_evaluacion.sql",
+  "esperado": "Criterios y estados coherentes con la evidencia de las demás pruebas",
+  "herramienta": "Script 08",
+  "obtenido": "Ejecutado: 15 criterios; 5 Cumple, 5 Parcial, 5 No cumple",
+  "resultado": "Cumple",
+  "logs": [
+   "08_matriz_evaluacion.log"
+  ]
+ }
+]

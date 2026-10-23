@@ -1,0 +1,172 @@
+[
+ {
+  "id": "T-01",
+  "tarea": "Creación y baja de usuarios",
+  "objetos": "CREATE USER, DROP USER, DBA_USERS",
+  "riesgos": [
+   "R-CONF-01",
+   "R-CONF-02"
+  ],
+  "controles": [
+   "A5.16",
+   "A5.18"
+  ]
+ },
+ {
+  "id": "T-02",
+  "tarea": "Asignación de privilegios y roles",
+  "objetos": "GRANT, REVOKE, DBA_SYS_PRIVS, DBA_ROLE_PRIVS",
+  "riesgos": [
+   "R-CONF-01"
+  ],
+  "controles": [
+   "A5.15",
+   "A5.18",
+   "A8.2",
+   "A8.3"
+  ]
+ },
+ {
+  "id": "T-03",
+  "tarea": "Gestión de cuentas privilegiadas",
+  "objetos": "SYS, SYSTEM, SYSDBA, V$PWFILE_USERS",
+  "riesgos": [
+   "R-CONF-01",
+   "R-CONF-02"
+  ],
+  "controles": [
+   "A8.2",
+   "A8.5"
+  ]
+ },
+ {
+  "id": "T-04",
+  "tarea": "Autenticación y perfiles de contraseña",
+  "objetos": "CREATE PROFILE, DBA_PROFILES",
+  "riesgos": [
+   "R-CONF-02"
+  ],
+  "controles": [
+   "A5.17",
+   "A8.5"
+  ]
+ },
+ {
+  "id": "T-05",
+  "tarea": "Clasificación de datos sensibles",
+  "objetos": "COMMENT ON COLUMN, DBA_COL_COMMENTS",
+  "riesgos": [
+   "R-CONF-01",
+   "R-CONF-04"
+  ],
+  "controles": [
+   "A5.12"
+  ]
+ },
+ {
+  "id": "T-06",
+  "tarea": "Cifrado en reposo (TDE)",
+  "objetos": "V$ENCRYPTION_WALLET, DBA_ENCRYPTED_COLUMNS",
+  "riesgos": [
+   "R-CONF-03"
+  ],
+  "controles": [
+   "A8.24"
+  ]
+ },
+ {
+  "id": "T-07",
+  "tarea": "Enmascaramiento y redacción de datos",
+  "objetos": "Vistas de masking, DBMS_REDACT",
+  "riesgos": [
+   "R-CONF-04"
+  ],
+  "controles": [
+   "A8.11",
+   "A5.12"
+  ]
+ },
+ {
+  "id": "T-08",
+  "tarea": "Respaldos RMAN cifrados",
+  "objetos": "RMAN, V$RMAN_BACKUP_JOB_DETAILS",
+  "riesgos": [
+   "R-CONF-03"
+  ],
+  "controles": [
+   "A8.13",
+   "A5.33"
+  ]
+ },
+ {
+  "id": "T-09",
+  "tarea": "Auditoría unificada",
+  "objetos": "CREATE AUDIT POLICY, UNIFIED_AUDIT_TRAIL",
+  "riesgos": [
+   "R-CONF-05"
+  ],
+  "controles": [
+   "A8.15",
+   "A5.33"
+  ]
+ },
+ {
+  "id": "T-10",
+  "tarea": "Gestión de logs y redo",
+  "objetos": "Alert log, redo, LogMiner, V$DIAG_INFO",
+  "riesgos": [
+   "R-CONF-03",
+   "R-CONF-05"
+  ],
+  "controles": [
+   "A8.15",
+   "A5.33"
+  ]
+ },
+ {
+  "id": "T-11",
+  "tarea": "Parcheo",
+  "objetos": "DBA_REGISTRY_SQLPATCH, V$VERSION",
+  "riesgos": [
+   "R-CONF-01",
+   "R-CONF-06"
+  ],
+  "controles": [
+   "A8.8"
+  ]
+ },
+ {
+  "id": "T-12",
+  "tarea": "Configuración del listener y la red",
+  "objetos": "LSNRCTL, sqlnet.ora, V$SESSION_CONNECT_INFO",
+  "riesgos": [
+   "R-CONF-06"
+  ],
+  "controles": [
+   "A8.20"
+  ]
+ },
+ {
+  "id": "T-13",
+  "tarea": "Eliminación segura de información",
+  "objetos": "PURGE, DBA_RECYCLEBIN, retiro de datafiles",
+  "riesgos": [
+   "R-CONF-03"
+  ],
+  "controles": [
+   "A8.10"
+  ]
+ },
+ {
+  "id": "T-14",
+  "tarea": "Clones DEV/TEST",
+  "objetos": "Data Pump, DBA_DIRECTORIES, masking",
+  "riesgos": [
+   "R-CONF-04"
+  ],
+  "controles": [
+   "A8.11",
+   "A8.12"
+  ]
+ }
+]

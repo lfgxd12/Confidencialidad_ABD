@@ -1,0 +1,306 @@
+[
+ {
+  "n": 1,
+  "tarea": "T-01",
+  "riesgo": "R-CONF-01",
+  "control": "A5.18",
+  "criterio": 2,
+  "evidencia": "Cuentas sin uso en 120 días (OBS-09)",
+  "resultado": "PDBADMIN abierta sin ingreso registrado en 120 días (OBS-09)",
+  "calculado": true,
+  "logs": [
+   "02_autenticacion_perfiles.log"
+  ],
+  "live": [
+   {
+    "ctl": "A5.18",
+    "desde": "Cuentas abiertas sin uso"
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "tarea": "T-02",
+  "riesgo": "R-CONF-01",
+  "control": "A8.2",
+  "criterio": 4,
+  "evidencia": "Cuentas con privilegios ANY (OBS-01)",
+  "resultado": "0 cuentas con privilegios ANY (OBS-01)",
+  "calculado": true,
+  "logs": [
+   "01_privilegios_roles.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.2",
+    "desde": "Cuentas de usuario con privilegios ANY"
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "tarea": "T-03",
+  "riesgo": "R-CONF-01",
+  "control": "A8.2",
+  "criterio": 4,
+  "evidencia": "Cuentas con el rol DBA (OBS-02)",
+  "resultado": "0 cuentas con rol DBA (OBS-02); PDBADMIN con PDB_DBA y ADMIN OPTION, cuenta del PDB justificada (OBS-03)",
+  "calculado": true,
+  "logs": [
+   "01_privilegios_roles.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.2",
+    "desde": "Cuentas de usuario con el rol DBA"
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "tarea": "T-04",
+  "riesgo": "R-CONF-02",
+  "control": "A5.17",
+  "criterio": 4,
+  "evidencia": "Contraseñas por defecto (OBS-07)",
+  "resultado": "0 cuentas con contraseña por defecto (OBS-07)",
+  "calculado": true,
+  "logs": [
+   "02_autenticacion_perfiles.log",
+   "08_matriz_evaluacion.log"
+  ],
+  "live": [
+   {
+    "ctl": "A5.17",
+    "desde": "Cuentas con contrasena por defecto"
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "tarea": "T-04",
+  "riesgo": "R-CONF-02",
+  "control": "A8.5",
+  "criterio": 2,
+  "evidencia": "FAILED_LOGIN_ATTEMPTS del perfil DEFAULT (OBS-08)",
+  "resultado": "FAILED_LOGIN_ATTEMPTS del perfil DEFAULT = 10; CIS pide 5 o menos (OBS-08)",
+  "calculado": true,
+  "logs": [
+   "02_autenticacion_perfiles.log",
+   "08_matriz_evaluacion.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.5",
+    "desde": "FAILED_LOGIN_ATTEMPTS"
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "tarea": "T-04",
+  "riesgo": "R-CONF-02",
+  "control": "A5.17",
+  "criterio": 0,
+  "evidencia": "PASSWORD_LIFE_TIME, LOCK_TIME y función de verificación (OBS-08)",
+  "resultado": "Verificación de contraseña NULL (0); vida 180 (2); bloqueo 1 (4), se anota el peor (OBS-08)",
+  "calculado": true,
+  "logs": [
+   "02_autenticacion_perfiles.log",
+   "08_matriz_evaluacion.log"
+  ],
+  "live": [
+   {
+    "ctl": "A5.17",
+    "desde": "PASSWORD_VERIFY_FUNCTION"
+   },
+   {
+    "ctl": "A5.17",
+    "desde": "PASSWORD_LIFE_TIME"
+   },
+   {
+    "ctl": "A5.17",
+    "desde": "PASSWORD_LOCK_TIME"
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "tarea": "T-05",
+  "riesgo": "R-CONF-04",
+  "control": "A5.12",
+  "criterio": 2,
+  "evidencia": "Columnas clasificadas (OBS-12)",
+  "resultado": "Columnas clasificadas solo en el esquema demo, sin inventario formal (OBS-12)",
+  "calculado": false,
+  "logs": [
+   "04_masking_demo.log"
+  ],
+  "live": []
+ },
+ {
+  "n": 8,
+  "tarea": "T-06",
+  "riesgo": "R-CONF-03",
+  "control": "A8.24",
+  "criterio": 0,
+  "evidencia": "Almacén de llaves abierto (OBS-10)",
+  "resultado": "Wallet NOT_AVAILABLE; sin columnas ni tablespaces cifrados (OBS-10)",
+  "calculado": true,
+  "logs": [
+   "03_cifrado_red.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.24",
+    "desde": "Almac"
+   }
+  ]
+ },
+ {
+  "n": 9,
+  "tarea": "T-07",
+  "riesgo": "R-CONF-04",
+  "control": "A8.11",
+  "criterio": 3,
+  "evidencia": "Vista de masking y privilegios (OBS-13)",
+  "resultado": "Vista de masking efectiva (PT-04, PT-05); sin Data Redaction; solo en el demo (OBS-13)",
+  "calculado": false,
+  "logs": [
+   "04_masking_demo.log",
+   "05c_pruebas_analista.log"
+  ],
+  "live": []
+ },
+ {
+  "n": 10,
+  "tarea": "T-08",
+  "riesgo": "R-CONF-03",
+  "control": "A8.13",
+  "criterio": 2,
+  "evidencia": "ARCHIVELOG y respaldo reciente (script 06)",
+  "resultado": "ARCHIVELOG; 29 conjuntos del 05/10/26; cifrado de RMAN en OFF (06b)",
+  "calculado": true,
+  "logs": [
+   "06_respaldos_logs_parcheo.log",
+   "06b_rman_showall.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.13",
+    "desde": "ARCHIVELOG"
+   }
+  ]
+ },
+ {
+  "n": 11,
+  "tarea": "T-09",
+  "riesgo": "R-CONF-05",
+  "control": "A8.15",
+  "criterio": 4,
+  "evidencia": "Políticas de auditoría activas (OBS-14)",
+  "resultado": "Línea base 2 políticas; tras implementar, 4 (OBS-14, OBS-15)",
+  "calculado": true,
+  "logs": [
+   "05a_politicas_auditoria.log",
+   "05b_consulta_auditoria.log",
+   "05d_prueba_privilegiados.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.15",
+    "desde": "Politicas de auditoria"
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "tarea": "T-10",
+  "riesgo": "R-CONF-05",
+  "control": "A5.33",
+  "criterio": 2,
+  "evidencia": "Retención de auditoría y redo (scripts 05b y 06)",
+  "resultado": "Pista en SYSAUX sin retención ni purga definidas (05b)",
+  "calculado": false,
+  "logs": [
+   "05b_consulta_auditoria.log",
+   "06_respaldos_logs_parcheo.log"
+  ],
+  "live": []
+ },
+ {
+  "n": 13,
+  "tarea": "T-11",
+  "riesgo": "R-CONF-01",
+  "control": "A8.8",
+  "criterio": 1,
+  "evidencia": "Parches aplicados (script 06)",
+  "resultado": "Sin parches en DBA_REGISTRY_SQLPATCH; versión 21.3 XE (06)",
+  "calculado": true,
+  "logs": [
+   "06_respaldos_logs_parcheo.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.8",
+    "desde": "Parche SQL"
+   }
+  ]
+ },
+ {
+  "n": 14,
+  "tarea": "T-12",
+  "riesgo": "R-CONF-06",
+  "control": "A8.20",
+  "criterio": 1,
+  "evidencia": "Cifrado de red observado (OBS-11)",
+  "resultado": "Sin cifrado de red; listener sin restricción de nodos (OBS-11, 03b a 03e)",
+  "calculado": true,
+  "logs": [
+   "03_cifrado_red.log",
+   "03b_lsnrctl_status.txt",
+   "03c_sqlnet_ora.txt",
+   "03d_network_admin_dir.txt",
+   "03e_listener_ora.txt"
+  ],
+  "live": [
+   {
+    "ctl": "A8.20",
+    "desde": "Sesiones con adaptador"
+   }
+  ]
+ },
+ {
+  "n": 15,
+  "tarea": "T-13",
+  "riesgo": "R-CONF-03",
+  "control": "A8.10",
+  "criterio": 2,
+  "evidencia": "Papelera y borrado de archivos (script 06)",
+  "resultado": "Papelera activa y vacía; sin procedimiento de borrado seguro (06)",
+  "calculado": false,
+  "logs": [
+   "06_respaldos_logs_parcheo.log"
+  ],
+  "live": []
+ },
+ {
+  "n": 16,
+  "tarea": "T-14",
+  "riesgo": "R-CONF-04",
+  "control": "A8.12",
+  "criterio": 1,
+  "evidencia": "PUBLIC con EXECUTE en UTL_* (OBS-05)",
+  "resultado": "PUBLIC con EXECUTE en UTL_TCP, UTL_HTTP, UTL_FILE, UTL_SMTP (OBS-05)",
+  "calculado": true,
+  "logs": [
+   "01_privilegios_roles.log"
+  ],
+  "live": [
+   {
+    "ctl": "A8.12",
+    "desde": "PUBLIC con EXECUTE"
+   }
+  ]
+ }
+]

@@ -2,3 +2,7 @@
 *.tmp
 Thumbs.db
 .DS_Store
+panel/.env
+panel/.venv/
+__pycache__/
+.pytest_cache/

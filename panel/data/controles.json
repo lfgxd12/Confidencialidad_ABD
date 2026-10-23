@@ -1,0 +1,104 @@
+[
+ {
+  "id": "A5.12",
+  "nombre": "Classification of information",
+  "implementacion": "Etiquetar columnas con clasificación mediante comentarios y mantener un inventario de datos sensibles",
+  "evidencia": "DBA_COL_COMMENTS WHERE COMMENTS LIKE 'CLASIF=%'"
+ },
+ {
+  "id": "A5.15",
+  "nombre": "Access control",
+  "implementacion": "Política de acceso por roles de trabajo; sin privilegios directos a usuarios",
+  "evidencia": "DBA_ROLE_PRIVS, DBA_TAB_PRIVS"
+ },
+ {
+  "id": "A5.16",
+  "nombre": "Identity management",
+  "implementacion": "Cuentas nominales y únicas; sin cuentas compartidas; alta y baja con solicitud aprobada",
+  "evidencia": "DBA_USERS (username, created, account_status)"
+ },
+ {
+  "id": "A5.17",
+  "nombre": "Authentication information",
+  "implementacion": "Perfiles con función de verificación, bloqueo por intentos fallidos y expiración",
+  "evidencia": "DBA_PROFILES, DBA_USERS_WITH_DEFPWD"
+ },
+ {
+  "id": "A5.18",
+  "nombre": "Access rights",
+  "implementacion": "Revisión periódica de derechos; bloqueo de cuentas sin uso",
+  "evidencia": "DBA_USERS.LAST_LOGIN, DBA_ROLE_PRIVS"
+ },
+ {
+  "id": "A5.33",
+  "nombre": "Protection of records",
+  "implementacion": "Proteger la pista de auditoría y los redo archivados; definir retención",
+  "evidencia": "DBA_AUDIT_MGMT_CONFIG_PARAMS, V$ARCHIVED_LOG"
+ },
+ {
+  "id": "A8.2",
+  "nombre": "Privileged access rights",
+  "implementacion": "Limitar DBA, SYSDBA y privilegios ANY; cuenta privilegiada separada",
+  "evidencia": "V$PWFILE_USERS, DBA_SYS_PRIVS"
+ },
+ {
+  "id": "A8.3",
+  "nombre": "Information access restriction",
+  "implementacion": "Acceso a datos solo por vistas y roles; VPD donde la edición lo permita",
+  "evidencia": "DBA_TAB_PRIVS, DBA_POLICIES"
+ },
+ {
+  "id": "A8.5",
+  "nombre": "Secure authentication",
+  "implementacion": "Límite de intentos fallidos, archivo de contraseñas exclusivo, autenticación robusta",
+  "evidencia": "V$PARAMETER, DBA_PROFILES"
+ },
+ {
+  "id": "A8.8",
+  "nombre": "Management of technical vulnerabilities (adicional)",
+  "implementacion": "Aplicar parches y documentar limitaciones",
+  "evidencia": "DBA_REGISTRY_SQLPATCH, V$VERSION"
+ },
+ {
+  "id": "A8.10",
+  "nombre": "Information deletion",
+  "implementacion": "Purgar papelera, retirar datafiles y respaldos vencidos con borrado seguro",
+  "evidencia": "DBA_RECYCLEBIN, parámetro recyclebin"
+ },
+ {
+  "id": "A8.11",
+  "nombre": "Data masking",
+  "implementacion": "Vistas de masking y Data Redaction (según edición); masking estático para clones",
+  "evidencia": "V_CLIENTES_MASK, REDACTION_POLICIES"
+ },
+ {
+  "id": "A8.12",
+  "nombre": "Data leakage prevention",
+  "implementacion": "Revocar a PUBLIC los paquetes UTL_*; controlar DIRECTORY y Data Pump",
+  "evidencia": "DBA_TAB_PRIVS, DBA_DIRECTORIES"
+ },
+ {
+  "id": "A8.13",
+  "nombre": "Information backup",
+  "implementacion": "Respaldos RMAN cifrados, en ARCHIVELOG, con custodia y prueba de restauración",
+  "evidencia": "SHOW ALL (RMAN), V$RMAN_BACKUP_JOB_DETAILS"
+ },
+ {
+  "id": "A8.15",
+  "nombre": "Logging",
+  "implementacion": "Auditoría unificada sobre objetos sensibles y acciones privilegiadas",
+  "evidencia": "UNIFIED_AUDIT_TRAIL, AUDIT_UNIFIED_ENABLED_POLICIES"
+ },
+ {
+  "id": "A8.20",
+  "nombre": "Networks security",
+  "implementacion": "Cifrado de red (TLS o nativo), restricción de origen en el listener",
+  "evidencia": "V$SESSION_CONNECT_INFO, lsnrctl status, sqlnet.ora"
+ },
+ {
+  "id": "A8.24",
+  "nombre": "Use of cryptography (adicional)",
+  "implementacion": "Almacén de llaves TDE abierto y tablespaces o columnas cifradas",
+  "evidencia": "V$ENCRYPTION_WALLET"
+ }
+]
