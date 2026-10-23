@@ -1,0 +1,19 @@
+-- Panel de laboratorio · script 00b (00b_ajuste_auditor.sql)
+-- Usuario: SYS · Contenedor: XEPDB1 · 2026-10-23T00:55:56-06:00
+
+SQL> SELECT USER AS usuario, SYS_CONTEXT('USERENV','CON_NAME') AS contenedor, TO_CHAR(SYSTIMESTAMP,'YYYY-MM-DD HH24
+USUARIO  CONTENEDOR  FECHA
+-------  ----------  --------------------------
+SYS      XEPDB1      2026-10-23 00:55:56 -06:00
+
+1 fila(s) seleccionada(s).
+
+SQL> GRANT SELECT ON sys.dba_users_with_defpwd TO conf_auditor
+0 fila(s) afectada(s).
+
+SQL> SELECT grantee, owner, table_name, privilege FROM dba_tab_privs WHERE grantee = 'CONF_AUDITOR'
+GRANTEE       OWNER  TABLE_NAME             PRIVILEGE
+------------  -----  ---------------------  ---------
+CONF_AUDITOR  SYS    DBA_USERS_WITH_DEFPWD  SELECT
+
+1 fila(s) seleccionada(s).

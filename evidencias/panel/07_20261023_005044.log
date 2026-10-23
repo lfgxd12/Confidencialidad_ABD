@@ -1,0 +1,39 @@
+-- Panel de laboratorio · script 07 (07_limpieza_demo.sql)
+-- Usuario: SYS · Contenedor: XEPDB1 · 2026-10-23T00:50:44-06:00
+
+SQL> NOAUDIT POLICY pol_conf_clientes
+ERROR: ORA-46357: No se encuentra la política de auditoría POL_CONF_CLIENTES.
+Help: https://docs.oracle.com/error-help/db/ora-46357/
+
+SQL> DROP AUDIT POLICY pol_conf_clientes
+ERROR: ORA-46357: No se encuentra la política de auditoría POL_CONF_CLIENTES.
+Help: https://docs.oracle.com/error-help/db/ora-46357/
+
+SQL> NOAUDIT POLICY pol_conf_privilegiados
+ERROR: ORA-46357: No se encuentra la política de auditoría POL_CONF_PRIVILEGIADOS.
+Help: https://docs.oracle.com/error-help/db/ora-46357/
+
+SQL> DROP AUDIT POLICY pol_conf_privilegiados
+ERROR: ORA-46357: No se encuentra la política de auditoría POL_CONF_PRIVILEGIADOS.
+Help: https://docs.oracle.com/error-help/db/ora-46357/
+
+SQL> DROP USER conf_analista
+ERROR: ORA-01918: el usuario 'CONF_ANALISTA' no existe
+Help: https://docs.oracle.com/error-help/db/ora-01918/
+
+SQL> DROP ROLE rol_consulta_mask
+ERROR: ORA-01919: el rol 'ROL_CONSULTA_MASK' no existe
+Help: https://docs.oracle.com/error-help/db/ora-01919/
+
+SQL> DROP USER conf_demo CASCADE
+ERROR: ORA-01918: el usuario 'CONF_DEMO' no existe
+Help: https://docs.oracle.com/error-help/db/ora-01918/
+
+SQL> DROP USER conf_auditor
+ERROR: ORA-01918: el usuario 'CONF_AUDITOR' no existe
+Help: https://docs.oracle.com/error-help/db/ora-01918/
+
+SQL> SELECT username FROM dba_users WHERE username LIKE 'CONF%'
+ninguna fila seleccionada
+
+0 fila(s) seleccionada(s).
