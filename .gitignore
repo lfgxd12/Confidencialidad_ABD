@@ -9,3 +9,10 @@ __pycache__/
 .claude/
 .agents/
 panel/.agents/
+*.zip
+# video privado (no va al repositorio)
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi

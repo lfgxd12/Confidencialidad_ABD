@@ -19,7 +19,7 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ## Pruebas automáticas
 ```bash
 cd panel
-python -m pytest -q        # 36 pruebas: reglas 0-4, coherencia con el informe, API, seguridad, laboratorio
+python -m pytest -q        # 37 pruebas: reglas 0-4, coherencia con el informe, API, seguridad, laboratorio
 ```
 Verifican, entre otras cosas, que la matriz del panel coincide con el informe (4 Cumple, 7 Parcial, 5 No cumple sobre 16 filas), que cada log citado existe y que no se puede leer fuera de `evidencias/`.
 
